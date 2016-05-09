@@ -25,6 +25,9 @@ vars_to_keep_cleaned = [v for v in vars_to_keep if str(v) != 'nan'] # get rid of
 # Get rid of unneccessary columns
 data_csv = data_csv[vars_to_keep_cleaned] # keep only the columns desired
 
+# Of the ones desired, keep only those that have at least one non-NA entry
+data_csv.dropna(how='any')
+
 # Write cleaned csv
-fname_write = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\DataCleaned'
+fname_write = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\DataCleaned.csv'
 data_csv.to_csv(fname_write)
