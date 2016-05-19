@@ -42,7 +42,7 @@ for i in range(len(nats)):
     
 # Loop through each rap listed in the file
 
-fuzzy_threshold = 65 # How similar the two names have to be to be counted as "the same". I chose this with a little bit of trial and error. Far from perfect.
+fuzzy_threshold = 90 # How similar the two names have to be to be counted as "the same". I chose this with a little bit of trial and error. Far from perfect.
 
 def isnotnanstr(s):
     return str(s)!='nan'
@@ -68,7 +68,7 @@ for i in range(nat_csv.values.shape[0]):
             print rap_var
         
         # Set values for corresponding column
-        idx_write = [x for x in temp2.index if x==True]
+        idx_write = temp2.index[temp2.values]
         data_csv.set_value(idx_write,nat_csv.values[i,1],True)
         
 # Write cleaned csv
