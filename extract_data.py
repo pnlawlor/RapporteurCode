@@ -16,7 +16,7 @@ vars_loc = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteu
 
 # Load files
 data_csv = pd.read_csv(data_loc) # data file
-vars_csv = pd.read_excel(vars_loc,sheetname='Sheet3') # list of variables to keep
+vars_csv = pd.read_excel(vars_loc,    ) # list of variables to keep
 
 # Clean up list of variables to keep
 vars_to_keep = vars_csv.values.flatten() # 2d table to 1d list, "flatten"
