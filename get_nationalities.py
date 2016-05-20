@@ -18,11 +18,15 @@ data_csv = pd.read_csv(csv_loc)
 var_loc = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\VariableList.xlsx'
 var_csv = pd.read_excel(var_loc,sheetname='Sheet3')
 
-# Load the nationalities file
-nat_loc = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\MEPNationalityList.xlsx'
-nat_csv = pd.read_excel(nat_loc)
-nat_csv.drop('Year : Party',axis=1,inplace=True)
-nat_csv.dropna(how='any',inplace=True)
+# Load the nationalities file - VERSION 1
+#nat_loc = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\MEPNationalityList.xlsx'
+#nat_csv = pd.read_excel(nat_loc)
+#nat_csv.drop('Year : Party',axis=1,inplace=True)
+#nat_csv.dropna(how='any',inplace=True)
+
+# Load the nationalities file - VERSION 2
+nat_loc = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\MEPNationalityList2.csv'
+nat_csv = pd.read_csv(nat_loc,encoding='utf-8')
 
 # Get unique countries in nationalities file
 nats = nat_csv.Nationality.unique()
@@ -72,7 +76,7 @@ for i in range(nat_csv.values.shape[0]):
         data_csv.set_value(idx_write,nat_csv.values[i,1],True)
         
 # Write cleaned csv
-fname_write = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\DataCleaned_countries.csv'
+fname_write = 'C:\Users\pnlawlor\GoogleDrive\Research\Projects\Rapporteur\Rapporteur\Data\DataCleaned_countries2.csv'
 data_csv.to_csv(fname_write)
         
 
